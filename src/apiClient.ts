@@ -46,6 +46,6 @@ export class ApiClient {
             }
         });
 
-        return response.data;
+        return response?.data;
     }
 }

@@ -12,7 +12,9 @@ provider:
   stage: dev
   region: ap-southeast-2
   environment:
-    API_BASE_URL: https://example.com          # will be updated during session
+    API_BASE_URL: http://localhost:4000          # will be updated during session
+    API_USERNAME: demo-user
+    API_PASSWORD: demo-password
     AUTH_PATH: /auth/login
     DATA_PATH: /secure/data
 

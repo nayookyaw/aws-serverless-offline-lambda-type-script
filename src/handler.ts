@@ -2,8 +2,8 @@ import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda
 import { ApiClient } from "./apiClient";
 
 const apiBaseUrl = process.env.API_BASE_URL ?? "";
-const authPath = process.env.AUTH_PATH ?? "/auth/login";
-const dataPath = process.env.DATA_PATH ?? "/secure/data";
+const authPath = process.env.AUTH_PATH ?? "";
+const dataPath = process.env.DATA_PATH ?? "";
 
 // Helper to build a typed client with dynamic paths
 function createClient() {
@@ -21,8 +21,8 @@ export const integrate = async (
 ): Promise<APIGatewayProxyResultV2> => {
     try {
         // In a real scenario, these could come from env vars or request body
-        const username = process.env.API_USERNAME ?? "demo-user";
-        const password = process.env.API_PASSWORD ?? "demo-password";
+        const username = process.env.API_USERNAME ?? "";
+        const password = process.env.API_PASSWORD ?? "";
 
         const client = createClient();
 
@@ -44,7 +44,7 @@ export const integrate = async (
         console.error("Error in integrate handler:", error);
 
         return {
-            statusCode: 500,
+            statusCode: error?.status || 500,
             body: JSON.stringify({
                 message: "Integration failed",
                 error: error.message ?? "Unknown error"

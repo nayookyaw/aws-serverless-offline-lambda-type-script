@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "main": "handler.js",
   "scripts": {
-    "offline": "serverless offline",
+    "online": "serverless offline",
+    "offline": "serverless offline start",
     "build": "serverless package",
     "test": "jest"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.134",
+    "@types/aws-lambda": "^8.10.159",
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
-    "serverless": "^4.0.0",
+    "serverless": "^3.0.0",
     "serverless-esbuild": "^1.54.0",
     "serverless-offline": "^13.0.0",
     "ts-jest": "^29.1.2",
