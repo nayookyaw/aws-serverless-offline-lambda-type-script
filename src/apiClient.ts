@@ -18,8 +18,8 @@ export class ApiClient {
     /**
      * Authenticate and return the cookie from Set-Cookie header.
     */
-    async authenticate(username: string, password: string): Promise<AuthResult> {
-        const response = await this.client.post("/auth/login", {
+    async authenticate(username: string, password: string, authPath: string): Promise<AuthResult> {
+        const response = await this.client.post(authPath, {
             username,
             password
         });
@@ -39,8 +39,8 @@ export class ApiClient {
     /**
      * Call a protected endpoint using a cookie-based token.
     */
-    async getProtectedData(cookieHeader: string): Promise<unknown> {
-        const response = await this.client.get("/secure/data", {
+    async getProtectedData(cookieHeader: string, dataPath: string): Promise<unknown> {
+        const response = await this.client.get(dataPath, {
             headers: {
                 Cookie: cookieHeader
             }
