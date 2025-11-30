@@ -1,0 +1,34 @@
+service: serverless-cookie-lambda
+
+frameworkVersion: "3"
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: ap-southeast-2
+  environment:
+    API_BASE_URL: https://example.com          # will be updated during session
+    AUTH_PATH: /auth/login
+    DATA_PATH: /secure/data
+
+functions:
+  integrate:
+    handler: src/handler.integrate
+    events:
+      - httpApi:
+          path: /integrate
+          method: get
+
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    target: node18
+    platform: node
+    external: []
