@@ -1,4 +1,4 @@
-import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
+import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2, APIGatewayProxyStructuredResultV2 } from "aws-lambda";
 import { ApiClient } from "./apiClient";
 
 const API_BASE_URL = process.env.API_BASE_URL ?? "";
@@ -13,7 +13,7 @@ function createClient() {
 
 export const integrate = async (
   event: APIGatewayProxyEventV2
-): Promise<APIGatewayProxyResultV2> => {
+): Promise<APIGatewayProxyStructuredResultV2> => {
     try {
         // In a real scenario, these could come from env vars or request body
         const username = process.env.API_USERNAME ?? "";

@@ -6,16 +6,17 @@
     "online": "serverless offline",
     "offline": "serverless offline start",
     "build": "serverless package",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.159",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.14",
     "jest": "^29.7.0",
     "serverless": "^3.0.0",
     "serverless-esbuild": "^1.54.0",
     "serverless-offline": "^13.0.0",
-    "ts-jest": "^29.1.2",
+    "ts-jest": "^29.4.6",
     "typescript": "^5.6.0"
   },
   "dependencies": {
